@@ -49,6 +49,9 @@ public class EncryptForUseDefaultInsertColumnsTokenGeneratorTest {
     @InjectMocks
     private EncryptForUseDefaultInsertColumnsTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt for insert statement.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -59,6 +62,9 @@ public class EncryptForUseDefaultInsertColumnsTokenGeneratorTest {
         assertTrue(actual);
     }
 
+    /**
+     * test use default insert columns token generator for encrypt with previous tokens.
+     */
     @Test
     public void generateSQLTokenWhenPreviousTokenArePresentTest() {
         IdentifierValue idf = new IdentifierValue("table1");
@@ -91,6 +97,9 @@ public class EncryptForUseDefaultInsertColumnsTokenGeneratorTest {
         assertEquals(3, token.getColumns().size());
     }
 
+    /**
+     * test use default insert columns token generator for encrypt without previous tokens.
+     */
     @Test
     public void generateSQLTokenWithoutPreviousTokenTest() {
         IdentifierValue idf = new IdentifierValue("table1");
