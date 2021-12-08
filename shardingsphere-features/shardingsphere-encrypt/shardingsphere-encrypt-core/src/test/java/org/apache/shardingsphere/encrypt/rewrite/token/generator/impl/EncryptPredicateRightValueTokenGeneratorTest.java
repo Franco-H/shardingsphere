@@ -54,6 +54,9 @@ public class EncryptPredicateRightValueTokenGeneratorTest {
     @InjectMocks
     private EncryptPredicateRightValueTokenGenerator tokenGenerator;
     
+    /**
+     * test isGenerateSQLTokenForEncrypt with insert statement context.
+     */    
     @Test
     public void isGenerateSQLTokenForEncrypt() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -65,6 +68,9 @@ public class EncryptPredicateRightValueTokenGeneratorTest {
         assertTrue(actual);
     }
 
+    /**
+     * test predicate right value token generator for encrypt without encrypt conditions.
+     */
     @Test
     public void generateSQLTokensWithNoEncryptConditions() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -77,6 +83,9 @@ public class EncryptPredicateRightValueTokenGeneratorTest {
         assertEquals(0, sqlTokens.size());
     }
 
+    /**
+     * test predicate right value token generator for encrypt with encrypt conditions.
+     */
     @Test
     public void generateSQLTokensWithEncryptConditions() {
         Map<String, String> map = new HashMap<>();
@@ -114,6 +123,9 @@ public class EncryptPredicateRightValueTokenGeneratorTest {
         assertEquals(1, sqlTokens.size());
     }
 
+    /**
+     * test predicate right value token generator for encrypt with encrypt conditions and ciphers.
+     */
     @Test
     public void generateSQLTokensWithEncryptConditionsAndCipherTest() {
         Map<String, String> map = new HashMap<>();
