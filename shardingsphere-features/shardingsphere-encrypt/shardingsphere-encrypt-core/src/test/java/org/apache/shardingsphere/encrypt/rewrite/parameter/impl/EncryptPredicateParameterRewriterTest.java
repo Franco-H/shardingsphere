@@ -55,12 +55,18 @@ public class EncryptPredicateParameterRewriterTest {
     @InjectMocks
     private EncryptPredicateParameterRewriter reWriter;
 
+    /**
+     * test isNeedRewriteForEncrypt method for insert statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
         assertTrue(reWriter.isNeedRewriteForEncrypt(insertStatementContext));
     }
 
+    /**
+     * test predicate parameter re-writer for encrypt without encrypted conditions.
+     */
     @Test
     public void rewriteForEmptyEncryptConditionsTest() {
         StandardParameterBuilder parameterBuilder = new StandardParameterBuilder(Collections.singletonList(new Object()));
@@ -74,6 +80,9 @@ public class EncryptPredicateParameterRewriterTest {
         assertEquals(1, parameterBuilder.getParameters().size());
     }
 
+    /**
+     * test predicate parameter re-writer for encrypt with encrypted conditions.
+     */
     @Test
     public void rewriteWithEncryptedConditionsTest() {
         List<Object> parameters = new ArrayList<>();
