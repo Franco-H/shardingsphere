@@ -34,7 +34,10 @@ import static org.mockito.Mockito.mock;
 public class ComposeClassStaticMethodAroundAdviceTest {
 
     private ComposeClassStaticMethodAroundAdvice composeClassStaticMethodAroundAdvice;
-
+    
+    /**
+     * test for clear execution on beforeMethod.
+     */
     @Test
     public void beforeMethodTest() {
         ClassStaticMethodAroundAdvice advice = mock(ClassStaticMethodAroundAdvice.class);
@@ -44,7 +47,10 @@ public class ComposeClassStaticMethodAroundAdviceTest {
         composeClassStaticMethodAroundAdvice = new ComposeClassStaticMethodAroundAdvice(adviceList);
         composeClassStaticMethodAroundAdvice.beforeMethod(String.class, method, new Object[2], methodInvocationResult);
     }
-
+    
+    /**
+     * test for clear execution on afterMethod.
+     */
     @Test
     public void afterMethodTest() {
         ClassStaticMethodAroundAdvice advice = mock(ClassStaticMethodAroundAdvice.class);
@@ -54,7 +60,10 @@ public class ComposeClassStaticMethodAroundAdviceTest {
         composeClassStaticMethodAroundAdvice = new ComposeClassStaticMethodAroundAdvice(adviceList);
         composeClassStaticMethodAroundAdvice.afterMethod(String.class, method, new Object[2], methodInvocationResult);
     }
-
+    
+    /**
+     * test for clear execution on onThrowing.
+     */
     @Test
     public void onThrowingTest() {
         ClassStaticMethodAroundAdvice advice = mock(ClassStaticMethodAroundAdvice.class);
