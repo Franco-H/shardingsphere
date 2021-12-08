@@ -51,6 +51,9 @@ public class AssistQueryAndPlainInsertColumnsTokenGeneratorTest {
     @InjectMocks
     private AssistQueryAndPlainInsertColumnsTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt method for insert statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptUsingInsertTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -65,6 +68,9 @@ public class AssistQueryAndPlainInsertColumnsTokenGeneratorTest {
         assertTrue(actualValue);
     }
 
+    /**
+     * test isGenerateSQLTokenForEncrypt method for update statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptUsingUpdateTest() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -73,6 +79,9 @@ public class AssistQueryAndPlainInsertColumnsTokenGeneratorTest {
         assertFalse(actualValue);
     }
 
+    /**
+     * Assist query and plain insert columns token generator.
+     */
     @Test
     public void generateSQLTokensTest() {
         IdentifierValue idf = new IdentifierValue("table1");
