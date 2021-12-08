@@ -51,7 +51,10 @@ public class InsertCipherNameTokenGeneratorTest {
 
     @InjectMocks
     private InsertCipherNameTokenGenerator tokenGenerator;
-
+    
+    /**
+     * test isGenerateSQLTokenForEncrypt with insert statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -65,7 +68,10 @@ public class InsertCipherNameTokenGeneratorTest {
 
         assertTrue(tokenGenerator.isGenerateSQLTokenForEncrypt(insertStatementContext));
     }
-
+    
+    /**
+     * test insert cipher column name token generator for update context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptForNonInsertTest() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -73,6 +79,9 @@ public class InsertCipherNameTokenGeneratorTest {
         assertFalse(tokenGenerator.isGenerateSQLTokenForEncrypt(updateStatementContext));
     }
 
+    /**
+     * test insert cipher column name token generator for update context with logic and cipher columns.
+     */
     @Test
     public void generateSQLTokensTest() {
         final IdentifierValue idf = new IdentifierValue("idf");
