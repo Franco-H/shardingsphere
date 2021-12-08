@@ -31,7 +31,10 @@ import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EncryptParameterRewriterBuilderTest {
-    
+
+    /**
+     * test parameter re-writer builder for encrypt.
+     */    
     @Test
     public void getParameterReWritersTest() {
         ShardingSphereSchema shardingSphereSchema = mock(ShardingSphereSchema.class);
