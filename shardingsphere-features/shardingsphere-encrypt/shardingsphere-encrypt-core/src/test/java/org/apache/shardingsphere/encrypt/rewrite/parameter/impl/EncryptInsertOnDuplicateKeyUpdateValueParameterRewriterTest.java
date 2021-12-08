@@ -58,6 +58,9 @@ public class EncryptInsertOnDuplicateKeyUpdateValueParameterRewriterTest {
     @InjectMocks
     private EncryptInsertOnDuplicateKeyUpdateValueParameterRewriter reWriter;
 
+    /**
+     * test isNeedRewriteForEncrypt method with insert statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForInsertContextTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -71,6 +74,9 @@ public class EncryptInsertOnDuplicateKeyUpdateValueParameterRewriterTest {
         assertTrue(result);
     }
 
+    /**
+     * test isNeedRewriteForEncrypt method with update statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForUpdateContextTest() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -79,6 +85,9 @@ public class EncryptInsertOnDuplicateKeyUpdateValueParameterRewriterTest {
         assertFalse(result);
     }
 
+    /**
+     * test insert on duplicate key update parameter re-writer for encrypt.
+     */
     @Test
     public void reWriteTest() {
         List<Object> groupedParameters = new ArrayList<>();
@@ -122,6 +131,9 @@ public class EncryptInsertOnDuplicateKeyUpdateValueParameterRewriterTest {
         assertEquals(1, groupedParameterBuilder.getGenericParameterBuilder().getAddedIndexAndParameters().get(1).size());
     }
 
+    /**
+     * test insert on duplicate key update parameter re-writer for encrypt with query assisted encrypt algorithm.
+     */
     @Test
     public void reWriteWithQueryAssistedEncryptAlgorithmTest() {
         List<Object> groupedParameters = new ArrayList<>();
