@@ -57,6 +57,9 @@ public class EncryptAlterTableTokenGeneratorTest {
     @InjectMocks
     private EncryptAlterTableTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt method for alter table statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptTest() {
         final AlterTableStatementContext alterTableStatementContext = mock(AlterTableStatementContext.class);
@@ -64,6 +67,9 @@ public class EncryptAlterTableTokenGeneratorTest {
         assertTrue(tokenGenerator.isGenerateSQLTokenForEncrypt(alterTableStatementContext));
     }
 
+    /**
+     * test alter table token generator for encrypt with SQLServerDB.
+     */
     @Test
     public void generateSQLTokensForSQLServerDBTest() {
         final AlterTableStatementContext alterTableStatementContext = getAlterTableStatementContext(new SQLServerDatabaseType());
@@ -74,6 +80,9 @@ public class EncryptAlterTableTokenGeneratorTest {
         assertEquals(8, actualGenerated.size());
     }
 
+    /**
+     * test alter table token generator for encrypt with OracleDB.
+     */
     @Test
     public void generateSQLTokensForOracleDBTest() {
         final AlterTableStatementContext alterTableStatementContext = getAlterTableStatementContext(new OracleDatabaseType());
@@ -84,6 +93,9 @@ public class EncryptAlterTableTokenGeneratorTest {
         assertEquals(8, actualGenerated.size());
     }
 
+    /**
+     * test alter table token generator for encrypt with any other DB.
+     */
     @Test
     public void generateSQLTokensForOtherDBTest() {
         final AlterTableStatementContext alterTableStatementContext = getAlterTableStatementContext(new PostgreSQLDatabaseType());
