@@ -58,6 +58,9 @@ public class EncryptPredicateColumnTokenGeneratorTest {
     @InjectMocks
     private EncryptPredicateColumnTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt with insert statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -69,6 +72,9 @@ public class EncryptPredicateColumnTokenGeneratorTest {
         assertTrue(actual);
     }
     
+    /**
+     * test predicate column token generator for encrypt with update statement with where available.
+     */
     @Test
     public void generateSQLTokensWithWhereAvailableTest() {
         Map<String, String> columnTableMap = new HashMap<>();
@@ -104,6 +110,9 @@ public class EncryptPredicateColumnTokenGeneratorTest {
         assertEquals(1, tokens.size());
     }
 
+    /**
+     * test predicate column token generator for encrypt with select statement.
+     */
     @Test
     public void generateSQLTokensWithSelectStatementContextTest() {
         Map<String, String> columnTableMap = new HashMap<>();
