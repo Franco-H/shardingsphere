@@ -48,7 +48,10 @@ public class EncryptCreateTableTokenGeneratorTest {
 
     @InjectMocks
     private EncryptCreateTableTokenGenerator tokenGenerator;
-    
+
+    /**
+     * test isGenerateSQLTokenForEncrypt for create table.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptTest() {
         CreateTableStatementContext createTableStatementContext = mock(CreateTableStatementContext.class);
@@ -62,6 +65,9 @@ public class EncryptCreateTableTokenGeneratorTest {
         assertTrue(actual);
     }
 
+    /**
+     * test create table token generator for encrypt.
+     */
     @Test
     public void generateSQLTokensTest() {
         IdentifierValue idf = new IdentifierValue("table1");
