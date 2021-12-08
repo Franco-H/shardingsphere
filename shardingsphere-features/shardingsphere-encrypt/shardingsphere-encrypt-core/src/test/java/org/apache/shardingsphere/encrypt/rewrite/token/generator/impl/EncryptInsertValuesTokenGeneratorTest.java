@@ -54,6 +54,9 @@ public class EncryptInsertValuesTokenGeneratorTest {
     @InjectMocks
     private EncryptInsertValuesTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt with insert statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -67,6 +70,9 @@ public class EncryptInsertValuesTokenGeneratorTest {
         assertTrue(actual);
     }
 
+    /**
+     * test insert values token generator for encrypt with previous token.
+     */
     @Test
     public void generateSQLTokenHavingPreviousTokensTest() {
         IdentifierValue idf = new IdentifierValue("table1");
@@ -109,6 +115,9 @@ public class EncryptInsertValuesTokenGeneratorTest {
         assertEquals(1, previousToken.getInsertValues().size());
     }
 
+    /**
+     * test insert values token generator for encrypt without previous token.
+     */
     @Test
     public void generateSQLTokenWithNoPreviousTokensTest() {
         IdentifierValue idf = new IdentifierValue("table1");
