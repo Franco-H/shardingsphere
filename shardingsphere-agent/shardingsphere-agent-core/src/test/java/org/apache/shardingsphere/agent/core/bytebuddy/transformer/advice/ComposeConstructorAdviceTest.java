@@ -34,6 +34,9 @@ public class ComposeConstructorAdviceTest {
 
     private ComposeConstructorAdvice composeConstructorAdvice;
 
+    /**
+     * test for clear execution of onConstructor.
+     */
     @Test
     public void onConstructorTest() {
         ConstructorAdvice advice = mock(ConstructorAdvice.class);
