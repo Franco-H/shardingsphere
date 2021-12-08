@@ -54,6 +54,9 @@ public class EncryptInsertOnUpdateTokenGeneratorTest {
     @InjectMocks
     private EncryptInsertOnUpdateTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt with insert statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncrypt() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -67,6 +70,9 @@ public class EncryptInsertOnUpdateTokenGeneratorTest {
         assertTrue(actual);
     }
 
+    /**
+     * test insert on update values token generator for encrypt with duplicate columns.
+     */
     @Test
     public void generateSQLTokensWithDuplicateColumnSegmentTest() {
 
@@ -109,6 +115,9 @@ public class EncryptInsertOnUpdateTokenGeneratorTest {
         assertEquals(1, actualResult.size());
     }
 
+    /**
+     * test insert on update values token generator for encrypt without duplicate columns.
+     */
     @Test
     public void generateSQLTokensWithEmptyDuplicateColumnSegmentTest() {
 
@@ -132,7 +141,10 @@ public class EncryptInsertOnUpdateTokenGeneratorTest {
         assertNotNull(actualResult);
         assertEquals(0, actualResult.size());
     }
-
+    
+    /**
+     * test insert on update values token generator for encrypt with parameter marker expressions.
+     */
     @Test
     public void generateSQLTokensWithParameterMarkerExpressionSegmentTest() {
 
@@ -171,6 +183,9 @@ public class EncryptInsertOnUpdateTokenGeneratorTest {
         assertEquals(1, actualResult.size());
     }
 
+    /**
+     * test insert on update values token generator for encrypt without parameter marker expressions.
+     */
     @Test
     public void generateSQLTokensWithoutParameterMarkerExpressionSegmentAndLiteralExpressionSegmentTest() {
 
