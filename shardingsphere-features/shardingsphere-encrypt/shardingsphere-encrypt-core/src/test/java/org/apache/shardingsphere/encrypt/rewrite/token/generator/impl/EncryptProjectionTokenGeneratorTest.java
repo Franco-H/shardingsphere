@@ -60,7 +60,10 @@ public class EncryptProjectionTokenGeneratorTest {
 
     @InjectMocks
     private EncryptProjectionTokenGenerator tokenGenerator;
-
+    
+    /**
+     * test isGenerateSQLTokenForEncrypt with select statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptNoEmptyTablesTest() {
         SelectStatementContext selectStatementContext = mock(SelectStatementContext.class);
@@ -71,7 +74,10 @@ public class EncryptProjectionTokenGeneratorTest {
         final boolean actual = tokenGenerator.isGenerateSQLTokenForEncrypt(selectStatementContext);
         assertTrue(actual);
     }
-
+    
+    /**
+     * test projection token generator for encrypt with insert selection context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptWithInsertSelectionContextTest() {
         InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -82,7 +88,10 @@ public class EncryptProjectionTokenGeneratorTest {
         final boolean actual = tokenGenerator.isGenerateSQLTokenForEncrypt(insertStatementContext);
         assertTrue(actual);
     }
-
+    
+    /**
+     * test projection token generator for encrypt with column projections.
+     */
     @Test
     public void generateSQLTokensWithColumnProjectionsTest() {
         final IdentifierValue idf = new IdentifierValue("idf");
@@ -117,7 +126,10 @@ public class EncryptProjectionTokenGeneratorTest {
         assertNotNull(tokens);
         assertEquals(1, tokens.size());
     }
-
+    
+    /**
+     * test projection token generator for encrypt with shorthand projections.
+     */
     @Test
     public void generateSQLTokensWithShorthandProjectionsTest() {
         final DatabaseType databaseType = new MySQLDatabaseType();
