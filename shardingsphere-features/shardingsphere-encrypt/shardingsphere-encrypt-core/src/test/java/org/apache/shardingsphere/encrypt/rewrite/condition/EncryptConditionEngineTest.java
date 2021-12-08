@@ -62,12 +62,18 @@ public class EncryptConditionEngineTest {
     @Mock
     private TablesContext tablesContext;
 
+    /**
+     * test encrypt conditions creation when sql statement context has no where clause or inserts.
+     */
     @Test
     public void createEncryptConditionsWithEmptyContextTest() {
         final Collection<EncryptCondition> encryptConditions = encryptConditionEngine.createEncryptConditions(sqlStatementContext);
         assertEquals(0, encryptConditions.size());
     }
-
+    
+    /**
+     * test encrypt conditions creation when sql statement context has no where clause but has inserts.
+     */
     @Test
     public void createEncryptConditionsFromInsertStatementContextTest() {
         when(insertStatementContext.getInsertSelectContext()).thenReturn(insertSelectContext);
@@ -75,6 +81,9 @@ public class EncryptConditionEngineTest {
         assertEquals(0, encryptConditions.size());
     }
 
+    /**
+     * test encrypt conditions creation when sql statement context has no where clause but with inserts without wheres.
+     */
     @Test
     public void createEncryptConditionsFromInsertIncludingSelectWithoutWhereTest() {
         when(insertStatementContext.getInsertSelectContext()).thenReturn(insertSelectContext);
@@ -83,6 +92,9 @@ public class EncryptConditionEngineTest {
         assertEquals(0, encryptConditions.size());
     }
 
+    /**
+     * test encrypt conditions creation when sql statement context has no where clause but with inserts with wheres.
+     */
     @Test
     public void createEncryptConditionsFromInsertIncludingSelectWhereTest() {
         when(insertStatementContext.getInsertSelectContext()).thenReturn(insertSelectContext);
@@ -95,6 +107,9 @@ public class EncryptConditionEngineTest {
         assertEquals(0, encryptConditions.size());
     }
 
+    /**
+     * test encrypt conditions creation when sql statement context has no where clause but with inserts with wheres.
+     */
     @Test
     public void createEncryptConditionsFromInsertTest() {
         when(insertStatementContext.getInsertSelectContext()).thenReturn(insertSelectContext);
