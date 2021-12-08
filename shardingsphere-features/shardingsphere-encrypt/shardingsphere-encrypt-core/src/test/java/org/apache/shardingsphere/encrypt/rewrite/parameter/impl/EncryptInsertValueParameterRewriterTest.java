@@ -54,6 +54,9 @@ public class EncryptInsertValueParameterRewriterTest {
     @InjectMocks
     private EncryptInsertValueParameterRewriter reWriter;
 
+    /**
+     * test isNeedRewriteForEncrypt with insert statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForInsertStatementTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -65,9 +68,12 @@ public class EncryptInsertValueParameterRewriterTest {
 
         final boolean actual = reWriter.isNeedRewriteForEncrypt(insertStatementContext);
         assertTrue(actual);
-
+        
     }
 
+    /**
+     * test isNeedRewriteForEncrypt with update statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForUpdateStatementTest() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -77,6 +83,9 @@ public class EncryptInsertValueParameterRewriterTest {
 
     }
 
+    /**
+     * test insert value parameter re-writer for encrypt without derived columns.
+     */
     @Test
     public void reWriteWithoutDerivedColsTest() {
         List<Object> groupedParameters = new ArrayList<>();
@@ -121,6 +130,9 @@ public class EncryptInsertValueParameterRewriterTest {
         assertEquals(2, groupedParameterBuilder.getParameterBuilders().get(0).getAddedIndexAndParameters().get(1).size());
     }
 
+    /**
+     * test insert value parameter re-writer for encrypt with derived columns.
+     */
     @Test
     public void reWriteWithDerivedColsTest() {
         List<Object> groupedParameters = new ArrayList<>();
