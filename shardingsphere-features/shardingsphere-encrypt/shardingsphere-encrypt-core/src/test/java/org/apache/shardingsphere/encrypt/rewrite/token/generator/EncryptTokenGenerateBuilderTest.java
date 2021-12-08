@@ -32,7 +32,10 @@ import static org.mockito.Mockito.mock;
 public class EncryptTokenGenerateBuilderTest {
 
     private EncryptTokenGenerateBuilder builder;
-
+    
+    /**
+     * test SQL token generator builder for encrypt.
+     */
     @Test
     public void getSQLTokenGeneratorsTest() {
         final EncryptRule encryptRule = mock(EncryptRule.class);
