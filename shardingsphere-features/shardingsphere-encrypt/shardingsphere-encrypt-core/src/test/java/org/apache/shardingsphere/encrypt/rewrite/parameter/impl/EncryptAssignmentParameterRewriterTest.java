@@ -57,6 +57,9 @@ public class EncryptAssignmentParameterRewriterTest {
     @InjectMocks
     private EncryptAssignmentParameterRewriter encryptAssignmentParameterRewriter;
 
+    /**
+     * test isNeedRewriteForEncrypt method for update statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForUpdateContextTest() {
         final UpdateStatementContext updateStatementContext = mock(UpdateStatementContext.class);
@@ -64,6 +67,9 @@ public class EncryptAssignmentParameterRewriterTest {
         assertTrue(result);
     }
 
+    /**
+     * test isNeedRewriteForEncrypt method for insert statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForInsertContextTest() {
         final InsertStatementContext insertStatementContext = mock(InsertStatementContext.class);
@@ -77,6 +83,9 @@ public class EncryptAssignmentParameterRewriterTest {
         assertTrue(result);
     }
 
+    /**
+     * test isNeedRewriteForEncrypt method for delete statement context.
+     */
     @Test
     public void isNeedRewriteForEncryptForDeleteContextTest() {
         final DeleteStatementContext deleteStatementContext = mock(DeleteStatementContext.class);
@@ -84,6 +93,9 @@ public class EncryptAssignmentParameterRewriterTest {
         assertFalse(result);
     }
 
+    /**
+     * test reWrite method for update statement with set assignment.
+     */
     @Test
     public void rewriteWithUpdateAssignmentSegmentTest() {
         final StandardParameterBuilder standardParameterBuilder = new StandardParameterBuilder(new ArrayList<>());
@@ -125,6 +137,9 @@ public class EncryptAssignmentParameterRewriterTest {
         assertEquals(2, standardParameterBuilder.getAddedIndexAndParameters().get(1).size());
     }
 
+    /**
+     * test reWrite method for insert statement.
+     */
     @Test
     public void rewriteWithInsertAssignmentSegmentTest() {
         final StandardParameterBuilder standardParameterBuilder = new StandardParameterBuilder(new ArrayList<>());
@@ -166,6 +181,9 @@ public class EncryptAssignmentParameterRewriterTest {
         assertEquals(2, standardParameterBuilder.getAddedIndexAndParameters().get(1).size());
     }
 
+    /**
+     * test reWrite method with grouped parameter builder.
+     */
     @Test
     public void rewriteWithGroupedParameterBuilderTest() {
         List<Object> groupedParameters = new ArrayList<>();
