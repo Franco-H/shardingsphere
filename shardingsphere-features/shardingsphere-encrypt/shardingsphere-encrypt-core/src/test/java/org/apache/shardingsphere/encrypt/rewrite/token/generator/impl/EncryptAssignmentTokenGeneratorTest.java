@@ -55,6 +55,9 @@ public class EncryptAssignmentTokenGeneratorTest {
     @InjectMocks
     private EncryptAssignmentTokenGenerator tokenGenerator;
 
+    /**
+     * test isGenerateSQLTokenForEncrypt method for update statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptForUpdateTest() {
 
@@ -63,6 +66,9 @@ public class EncryptAssignmentTokenGeneratorTest {
         assertTrue(tokenGenerator.isGenerateSQLTokenForEncrypt(updateStatementContext));
     }
 
+    /**
+     * test isGenerateSQLTokenForEncrypt method for insert statement context.
+     */
     @Test
     public void isGenerateSQLTokenForEncryptForInsertTest() {
 
@@ -76,6 +82,9 @@ public class EncryptAssignmentTokenGeneratorTest {
         assertTrue(tokenGenerator.isGenerateSQLTokenForEncrypt(insertStatementContext));
     }
 
+    /**
+     * test assignment generator for encrypt with parameter marker expressions.
+     */
     @Test
     public void generateParameterSQLTokenTest() {
         IdentifierValue idf = new IdentifierValue("table1");
@@ -110,6 +119,9 @@ public class EncryptAssignmentTokenGeneratorTest {
         assertEquals(1, tokens.size());
     }
 
+    /**
+     * test assignment generator for encrypt with literal expressions.
+     */
     @Test
     public void generateLiteralSQLTokenTest() {
         IdentifierValue idf = new IdentifierValue("table1");
@@ -149,6 +161,9 @@ public class EncryptAssignmentTokenGeneratorTest {
         assertEquals(1, tokens.size());
     }
 
+    /**
+     * test assignment generator for encrypt with any other expressions.
+     */
     @Test
     public void generateTokenForOtherSegementsTest() {
         IdentifierValue idf = new IdentifierValue("table1");
@@ -183,6 +198,9 @@ public class EncryptAssignmentTokenGeneratorTest {
         assertEquals(0, tokens.size());
     }
 
+    /**
+     * test assignment generator for encrypt with update statement context.
+     */
     @Test
     public void generateTokenWithUpdateStatementTest() {
         IdentifierValue idf = new IdentifierValue("table1");
