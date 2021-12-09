@@ -45,3 +45,4 @@ public class EncryptTokenGenerateBuilderTest {
         assertEquals(11, sqlTokenGenerators.size());
     }
 }
+
